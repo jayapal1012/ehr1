@@ -1,0 +1,93 @@
+2025-07-15 10:08:53.946 IST [324696] LOG:  starting PostgreSQL 14.18 (Ubuntu 14.18-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+2025-07-15 10:08:53.946 IST [324696] LOG:  could not bind IPv6 address "::1": Address already in use
+2025-07-15 10:08:53.946 IST [324696] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2025-07-15 10:08:53.946 IST [324696] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2025-07-15 10:08:53.946 IST [324696] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2025-07-15 10:08:53.946 IST [324696] WARNING:  could not create listen socket for "localhost"
+2025-07-15 10:08:53.946 IST [324696] FATAL:  could not create any TCP/IP sockets
+2025-07-15 10:08:53.948 IST [324696] LOG:  database system is shut down
+2025-07-15 10:12:04.076 IST [325001] LOG:  starting PostgreSQL 14.18 (Ubuntu 14.18-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+2025-07-15 10:12:04.076 IST [325001] LOG:  could not bind IPv6 address "::1": Address already in use
+2025-07-15 10:12:04.076 IST [325001] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2025-07-15 10:12:04.076 IST [325001] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2025-07-15 10:12:04.076 IST [325001] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2025-07-15 10:12:04.076 IST [325001] WARNING:  could not create listen socket for "localhost"
+2025-07-15 10:12:04.076 IST [325001] FATAL:  could not create any TCP/IP sockets
+2025-07-15 10:12:04.077 IST [325001] LOG:  database system is shut down
+2025-07-15 10:13:05.484 IST [325219] LOG:  starting PostgreSQL 14.18 (Ubuntu 14.18-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+2025-07-15 10:13:05.484 IST [325219] LOG:  listening on IPv6 address "::1", port 5433
+2025-07-15 10:13:05.484 IST [325219] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2025-07-15 10:13:05.485 IST [325219] FATAL:  could not create lock file "/var/run/postgresql/.s.PGSQL.5433.lock": Permission denied
+2025-07-15 10:13:05.486 IST [325219] LOG:  database system is shut down
+2025-07-15 10:23:37.866 IST [326368] LOG:  starting PostgreSQL 14.18 (Ubuntu 14.18-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+2025-07-15 10:23:37.867 IST [326368] LOG:  listening on IPv6 address "::1", port 5433
+2025-07-15 10:23:37.867 IST [326368] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2025-07-15 10:23:37.872 IST [326368] LOG:  listening on Unix socket "/home/dst/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker/postgres_data/.s.PGSQL.5433"
+2025-07-15 10:23:37.881 IST [326369] LOG:  database system was shut down at 2025-07-15 10:08:31 IST
+2025-07-15 10:23:37.890 IST [326368] LOG:  database system is ready to accept connections
+2025-07-15 10:24:04.185 IST [326429] FATAL:  role "medcare_admin" does not exist
+2025-07-15 10:28:33.226 IST [326499] FATAL:  role "postgres" does not exist
+2025-07-15 10:29:06.618 IST [326553] FATAL:  database "dst" does not exist
+2025-07-15 11:20:20.108 IST [331112] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 11:20:20.108 IST [331112] DETAIL:  Failing row contains (1, null, Amlan, 22, 993766, 95, 120, 80, 70, 170, na, 2025-07-15 11:20:20.106853, 2025-07-15 11:20:20.106853, 1, t).
+2025-07-15 11:20:20.108 IST [331112] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 11:25:22.564 IST [331318] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 11:25:22.564 IST [331318] DETAIL:  Failing row contains (2, null, Amlan, 22, 993766, 95, 120, 80, 70, 170, na, 2025-07-15 11:25:22.562806, 2025-07-15 11:25:22.562806, 1, t).
+2025-07-15 11:25:22.564 IST [331318] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 11:25:23.590 IST [331324] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 11:25:23.590 IST [331324] DETAIL:  Failing row contains (3, null, Amlan, 22, 993766, 95, 120, 80, 70, 170, na, 2025-07-15 11:25:23.589117, 2025-07-15 11:25:23.589117, 1, t).
+2025-07-15 11:25:23.590 IST [331324] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 11:27:22.659 IST [331739] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 11:27:22.659 IST [331739] DETAIL:  Failing row contains (4, null, Amlan, 22, 12345, 22, 22, 22, 22, 22, , 2025-07-15 11:27:22.658355, 2025-07-15 11:27:22.658355, 1, t).
+2025-07-15 11:27:22.659 IST [331739] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 11:28:48.987 IST [331974] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 11:28:48.987 IST [331974] DETAIL:  Failing row contains (5, null, Amlan, 22, 22, 22, 22, 22, 22, 22, , 2025-07-15 11:28:48.985816, 2025-07-15 11:28:48.985816, 1, t).
+2025-07-15 11:28:48.987 IST [331974] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 12:15:17.833 IST [333834] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 12:15:17.833 IST [333834] DETAIL:  Failing row contains (6, null, , 22, 44, 44, 44, 44, 77, 7777, , 2025-07-15 12:15:17.83197, 2025-07-15 12:15:17.83197, 1, t).
+2025-07-15 12:15:17.833 IST [333834] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 13:11:19.565 IST [338937] ERROR:  null value in column "patient_id" of relation "patients" violates not-null constraint
+2025-07-15 13:11:19.565 IST [338937] DETAIL:  Failing row contains (7, null, Alice Smith, 35, 9876543210, 115.2, 125, 82, 68.5, 165.3, Asthma and previous surgeries, 2025-07-15 13:11:19.565219, 2025-07-15 13:11:19.565219, 1211, t).
+2025-07-15 13:11:19.565 IST [338937] STATEMENT:  insert into "patients" ("id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active") values (default, default, $1, $2, $3, $4, $5, $6, $7, $8, $9, default, default, $10, default) returning "id", "patient_id", "name", "age", "phone", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "weight", "height", "medical_history", "created_at", "updated_at", "created_by", "is_active"
+2025-07-15 13:14:30.176 IST [339211] ERROR:  null value in column "change_type" of relation "health_history" violates not-null constraint
+2025-07-15 13:14:30.176 IST [339211] DETAIL:  Failing row contains (1, 8, 1, 115.2, 125, 82, null, Initial patient record, 2025-07-15 13:14:30.175695).
+2025-07-15 13:14:30.176 IST [339211] STATEMENT:  insert into "health_history" ("id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp") values (default, $1, $2, $3, $4, $5, default, $6, default) returning "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp"
+2025-07-15 13:19:23.067 IST [339356] ERROR:  null value in column "change_type" of relation "health_history" violates not-null constraint
+2025-07-15 13:19:23.067 IST [339356] DETAIL:  Failing row contains (2, 9, 1, 115.2, 125, 82, null, Initial patient record, 2025-07-15 13:19:23.066896).
+2025-07-15 13:19:23.067 IST [339356] STATEMENT:  insert into "health_history" ("id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp") values (default, $1, $2, $3, $4, $5, default, $6, default) returning "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp"
+2025-07-15 13:22:25.035 IST [339940] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:22:25.035 IST [339940] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:23:32.320 IST [339983] ERROR:  null value in column "change_type" of relation "health_history" violates not-null constraint
+2025-07-15 13:23:32.320 IST [339983] DETAIL:  Failing row contains (4, 10, 1, 300, 200, 87, null, Patient record updated, 2025-07-15 13:23:32.320026).
+2025-07-15 13:23:32.320 IST [339983] STATEMENT:  insert into "health_history" ("id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp") values (default, $1, $2, $3, $4, $5, default, $6, default) returning "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp"
+2025-07-15 13:28:50.216 IST [340713] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:28:50.216 IST [340713] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:28:51.284 IST [340722] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:28:51.284 IST [340722] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:28:52.316 IST [340741] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:28:52.316 IST [340741] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:28:52.963 IST [340747] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:28:52.963 IST [340747] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:00.018 IST [340780] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:00.018 IST [340780] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:09.319 IST [340811] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:09.319 IST [340811] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:10.621 IST [340827] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:10.621 IST [340827] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:11.323 IST [340828] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:11.323 IST [340828] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:31.319 IST [340875] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:31.319 IST [340875] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:34.502 IST [340910] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:34.502 IST [340910] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:29:39.917 IST [340943] ERROR:  syntax error at or near "desc" at character 222
+2025-07-15 13:29:39.917 IST [340943] STATEMENT:  select "id", "patient_id", "recorded_by", "blood_sugar", "blood_pressure_systolic", "blood_pressure_diastolic", "change_type", "notes", "timestamp" from "health_history" where "health_history"."patient_id" = $1 order by  desc
+2025-07-15 13:34:53.918 IST [327245] ERROR:  syntax error at or near "SELECT" at character 77
+2025-07-15 13:34:53.918 IST [327245] STATEMENT:  SELECT * FROM health_history WHERE patient_id = $1 ORDER BY timestamp desc
+	
+	SELECT * FROM health_history WHERE patient_id = PT-1752565763061 $1 ORDER BY timestamp desc
+	SELECT * FROM health_history WHERE patient_id = PT-1752565820700 $1 ORDER BY timestamp desc
+	
+	SELECT * FROM health_history
+	WHERE patient_id = 'PT-1752565820700'
+	ORDER BY "timestamp" DESC;

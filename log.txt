@@ -1,0 +1,120 @@
+base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ ./db_setup.sh 
+🔧 Installing PostgreSQL...
+[sudo] password for dst: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+postgresql is already the newest version (14+238).
+postgresql-contrib is already the newest version (14+238).
+0 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+📁 Creating database directory ./postgres_data...
+🔄 Initializing PostgreSQL cluster in ./postgres_data...
+./db_setup.sh: line 15: initdb: command not found
+(base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ sudo apt install postgresql-client
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  postgresql-client
+0 upgraded, 1 newly installed, 0 to remove and 66 not upgraded.
+Need to get 3,292 B of archives.
+After this operation, 71.7 kB of additional disk space will be used.
+Get:1 http://apt.pop-os.org/ubuntu jammy/main amd64 postgresql-client all 14+238 [3,292 B]
+Fetched 3,292 B in 0s (6,771 B/s)             
+Selecting previously unselected package postgresql-client.
+(Reading database ... 289303 files and directories currently installed.)
+Preparing to unpack .../postgresql-client_14+238_all.deb ...
+Unpacking postgresql-client (14+238) ...
+Setting up postgresql-client (14+238) ...
+(base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ ./db_setup.sh 
+🔧 Installing PostgreSQL...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+postgresql is already the newest version (14+238).
+postgresql-contrib is already the newest version (14+238).
+0 upgraded, 0 newly installed, 0 to remove and 70 not upgraded.
+📁 Creating database directory ./postgres_data...
+🔄 Initializing PostgreSQL cluster in ./postgres_data...
+./db_setup.sh: line 15: initdb: command not found
+(base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ ./db_setup.sh 
+🔧 Installing PostgreSQL...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+postgresql is already the newest version (14+238).
+postgresql-contrib is already the newest version (14+238).
+0 upgraded, 0 newly installed, 0 to remove and 70 not upgraded.
+📌 Adding PostgreSQL binaries to PATH...
+📁 Creating database directory ./postgres_data...
+🔄 Initializing PostgreSQL cluster in ./postgres_data...
+The files belonging to this database system will be owned by user "dst".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_IN.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory ./postgres_data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Asia/Kolkata
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+initdb: warning: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D ./postgres_data -l logfile start
+
+📝 Configuring PostgreSQL to listen locally on port 5432...
+🚀 Starting PostgreSQL server...
+waiting for server to start.... done
+server started
+🗃️ Creating database 'medcare_pro'...
+👤 Creating user 'medcare_admin' and granting privileges...
+DO
+GRANT
+🌐 Creating .env file...
+📦 Pushing database schema (ensure 'db:push' is defined in package.json)...
+
+> rest-express@1.0.0 db:push
+> drizzle-kit push
+
+No config path provided, using default 'drizzle.config.ts'
+Reading config file '/home/dst/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)/drizzle.config.ts'
+Using 'pg' driver for database querying
+[✓] Pulling schema from database...
+[✓] Changes applied
+✅ Setup complete!
+ℹ️ To stop the server: pg_ctl -D ./postgres_data stop
+ℹ️ To start it again: pg_ctl -D ./postgres_data -l ./postgres_data/logfile start
+(base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ pg_ctl -D ./postgres_data -l ./postgres_data/logfile start
+pg_ctl: command not found
+(base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ psql -h localhost -p 5433 -U medcare_admin -d medcare_pro
+psql (14.18 (Ubuntu 14.18-0ubuntu0.22.04.1))
+Type "help" for help.
+
+medcare_pro=> \q
+(base) dst@pop-os:~/Downloads/HospitalCareTracker (2) (1)/HospitalCareTracker (1)$ psql -h localhost -p 5432 -U medcare_admin -d medcare_pro
+psql (14.18 (Ubuntu 14.18-0ubuntu0.22.04.1))
+Type "help" for help.
+
+medcare_pro=> SELECT * FROM users WHERE role = 'admin';
+ id | username | password | role | name | is_active | created_at 
+----+----------+----------+------+------+-----------+------------
+(0 rows)
+
+medcare_pro=> INSERT INTO users (username, password, role, name, is_active, created_at)
+VALUES ('admin', 'admin123', 'admin', 'Super Admin', true, NOW());
+INSERT 0 1
+medcare_pro=> 

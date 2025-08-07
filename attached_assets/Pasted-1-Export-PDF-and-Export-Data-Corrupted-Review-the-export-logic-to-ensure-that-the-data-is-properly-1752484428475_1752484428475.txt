@@ -1,0 +1,104 @@
+1. Export PDF and Export Data Corrupted
+Review the export logic to ensure that the data is properly encoded and structured before generating the file.
+
+
+Make sure special characters, null values, or incomplete records are handled before export.
+
+
+For PDF export, ensure that formatting libraries render the content as expected without layout breaks.
+
+
+For CSV, check for consistent delimiters and escape sequences.
+
+
+2. Link Health History with Patient Data
+Ensure that every health-related update for a patient (manual edit or auto-update) is linked with their profile in a separate health history log.
+
+
+Each entry should include a timestamp and the nature of the data change.
+
+
+This history should be used to generate graphs in the patient view.
+
+
+Ensure that health history is included as a data source for machine learning model predictions.
+
+
+3. Patient Edit Button Not Working in Admin and Staff Panels
+Ensure that the edit button triggers the correct action and the corresponding form is rendered.
+
+
+Check that the patient record is fetched, displayed, and editable.
+
+
+Ensure that the edited data updates the patient record and appends the new entry into the health history with date and time.
+
+
+The change should be reflected in both the database and the graphs.
+
+
+4. Disable Import Data Option
+Hide or disable the import button or option in both frontend and backend.
+
+
+Remove or comment out any unused or broken import-related logic to avoid confusion or potential security issues.
+
+
+5. Fix the Exported CSV
+Sanitize all fields before export to remove characters that break the CSV format.
+
+
+Ensure that newlines, commas, and quotes are properly escaped or enclosed in quotes.
+
+
+Maintain UTF-8 encoding to support multilingual data if necessary.
+
+
+6. User Management Enhancements
+In the admin panel, when a new patient is created, automatically set the login username as the patient's ID.
+
+
+Set the default password as a combination of the patient’s name and ID.
+
+
+Add an option in both patient and doctor views to allow them to change their password.
+
+
+Ensure the password update process is secure and only accessible to the authenticated user.
+
+
+7. Patient Appointment Creation and Management
+In the patient view, allow patients to create appointments by selecting date, time, staff name, and entering a brief description of the disease.
+
+
+Ensure that appointments created by patients are visible to the respective staff member in their panel.
+
+
+All appointments, regardless of patient or staff, should be visible to the admin in their panel.
+
+
+8. AI Tools Integration
+For health analysis, use a random forest model to process patient history and predict possible health risks.
+
+
+For image analysis, use a ResNet-50 model with demo weights for testing. Only allow staff or admin to upload medical images.
+
+
+Integrate prediction results in the respective views where relevant.
+
+
+9. Add Logout Functionality
+Ensure a logout button is present in the patient view for session termination.
+
+
+On logout, clear session data and redirect to the login page or homepage.
+
+
+10. Health History Graphs
+Visualize health history data in the patient view using graphs that show progression over time.
+
+
+Update the graphs automatically whenever new data is added or existing data is edited.
+
+
+Ensure date and time are displayed accurately for each health record.

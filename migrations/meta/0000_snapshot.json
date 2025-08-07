@@ -1,0 +1,614 @@
+{
+  "id": "b4dbc69d-1d24-493d-a61d-0d68a876f8cf",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.appointments": {
+      "name": "appointments",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "patient_id": {
+          "name": "patient_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "staff_id": {
+          "name": "staff_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "appointment_date": {
+          "name": "appointment_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'scheduled'"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "appointments_patient_id_patients_id_fk": {
+          "name": "appointments_patient_id_patients_id_fk",
+          "tableFrom": "appointments",
+          "tableTo": "patients",
+          "columnsFrom": [
+            "patient_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "appointments_staff_id_users_id_fk": {
+          "name": "appointments_staff_id_users_id_fk",
+          "tableFrom": "appointments",
+          "tableTo": "users",
+          "columnsFrom": [
+            "staff_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.audit_logs": {
+      "name": "audit_logs",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "action": {
+          "name": "action",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_type": {
+          "name": "target_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_id": {
+          "name": "target_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "details": {
+          "name": "details",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "audit_logs_user_id_users_id_fk": {
+          "name": "audit_logs_user_id_users_id_fk",
+          "tableFrom": "audit_logs",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.health_history": {
+      "name": "health_history",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "patient_id": {
+          "name": "patient_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "recorded_by": {
+          "name": "recorded_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blood_sugar": {
+          "name": "blood_sugar",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "blood_pressure_systolic": {
+          "name": "blood_pressure_systolic",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "blood_pressure_diastolic": {
+          "name": "blood_pressure_diastolic",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "change_type": {
+          "name": "change_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "health_history_patient_id_patients_id_fk": {
+          "name": "health_history_patient_id_patients_id_fk",
+          "tableFrom": "health_history",
+          "tableTo": "patients",
+          "columnsFrom": [
+            "patient_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "health_history_recorded_by_users_id_fk": {
+          "name": "health_history_recorded_by_users_id_fk",
+          "tableFrom": "health_history",
+          "tableTo": "users",
+          "columnsFrom": [
+            "recorded_by"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.health_predictions": {
+      "name": "health_predictions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "patient_id": {
+          "name": "patient_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cardiovascular_risk": {
+          "name": "cardiovascular_risk",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "diabetes_risk": {
+          "name": "diabetes_risk",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "overall_health_score": {
+          "name": "overall_health_score",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prediction_data": {
+          "name": "prediction_data",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "health_predictions_patient_id_patients_id_fk": {
+          "name": "health_predictions_patient_id_patients_id_fk",
+          "tableFrom": "health_predictions",
+          "tableTo": "patients",
+          "columnsFrom": [
+            "patient_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.medical_images": {
+      "name": "medical_images",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "patient_id": {
+          "name": "patient_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "filename": {
+          "name": "filename",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "analysis_type": {
+          "name": "analysis_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "analysis_result": {
+          "name": "analysis_result",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "confidence": {
+          "name": "confidence",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "findings": {
+          "name": "findings",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "medical_images_patient_id_patients_id_fk": {
+          "name": "medical_images_patient_id_patients_id_fk",
+          "tableFrom": "medical_images",
+          "tableTo": "patients",
+          "columnsFrom": [
+            "patient_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.patients": {
+      "name": "patients",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "patient_id": {
+          "name": "patient_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "age": {
+          "name": "age",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone": {
+          "name": "phone",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blood_sugar": {
+          "name": "blood_sugar",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blood_pressure_systolic": {
+          "name": "blood_pressure_systolic",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blood_pressure_diastolic": {
+          "name": "blood_pressure_diastolic",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weight": {
+          "name": "weight",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height": {
+          "name": "height",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "medical_history": {
+          "name": "medical_history",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "patients_created_by_users_id_fk": {
+          "name": "patients_created_by_users_id_fk",
+          "tableFrom": "patients",
+          "tableTo": "users",
+          "columnsFrom": [
+            "created_by"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "patients_patient_id_unique": {
+          "name": "patients_patient_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "patient_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_username_unique": {
+          "name": "users_username_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "username"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

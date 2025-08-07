@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>MedCare Pro - Hospital Management System</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="medcare-pro---hospital-management-system">MedCare Pro - Hospital Management System</h1>
+<h2 id="overview">Overview</h2>
+<p>MedCare Pro is a comprehensive hospital management system built with a modern full-stack architecture. The system provides medical professionals with tools for patient management, health prediction using AI models, and medical record management. It features role-based access control supporting staff, admin, and patient roles.</p>
+<h2 id="system-architecture">System Architecture</h2>
+<h3 id="frontend-architecture">Frontend Architecture</h3>
+<ul>
+<li><strong>Framework</strong>: React 18 with TypeScript</li>
+<li><strong>Styling</strong>: Tailwind CSS with shadcn/ui components</li>
+<li><strong>State Management</strong>: TanStack Query for server state management</li>
+<li><strong>Routing</strong>: Wouter for lightweight client-side routing</li>
+<li><strong>Form Management</strong>: React Hook Form with Zod validation</li>
+<li><strong>Build Tool</strong>: Vite for development and production builds</li>
+</ul>
+<h3 id="backend-architecture">Backend Architecture</h3>
+<ul>
+<li><strong>Runtime</strong>: Node.js with Express.js</li>
+<li><strong>Language</strong>: TypeScript with ES modules</li>
+<li><strong>Database</strong>: PostgreSQL with Drizzle ORM</li>
+<li><strong>Authentication</strong>: Session-based authentication with bcrypt for password hashing</li>
+<li><strong>API</strong>: RESTful API endpoints</li>
+</ul>
+<h3 id="database-architecture">Database Architecture</h3>
+<ul>
+<li><strong>ORM</strong>: Drizzle ORM with PostgreSQL dialect</li>
+<li><strong>Schema</strong>: Located in <code>shared/schema.ts</code> for type safety across client and server</li>
+</ul>
+<h2 id="key-components">Key Components</h2>
+<h3 id="authentication--authorization">Authentication &amp; Authorization</h3>
+<ul>
+<li>Role-based access control (staff, admin, patient)</li>
+<li>Session management with secure token storage</li>
+<li>Protected routes based on user roles</li>
+<li>Authentication provider using React Context</li>
+</ul>
+<h3 id="patient-management">Patient Management</h3>
+<ul>
+<li>Complete patient record management</li>
+<li>Patient search and filtering capabilities</li>
+<li>Medical history tracking</li>
+<li>Vital signs monitoring (blood pressure, blood sugar, BMI)</li>
+</ul>
+<h3 id="ai-powered-health-tools">AI-Powered Health Tools</h3>
+<ul>
+<li><strong>PyTorch Neural Networks</strong>: Custom trained models for health prediction</li>
+<li><strong>Health Risk Prediction</strong>: Neural network analyzing cardiovascular and diabetes risk</li>
+<li><strong>Medical Image Classification</strong>: CNN-based analysis of X-rays, CT scans, MRI, and ultrasound</li>
+<li><strong>Real-time AI Processing</strong>: Python backend integration with Node.js server</li>
+<li><strong>Intelligent Recommendations</strong>: ML-generated medical recommendations</li>
+</ul>
+<h3 id="user-interface">User Interface</h3>
+<ul>
+<li>Responsive design with mobile-first approach</li>
+<li>Dark mode support</li>
+<li>Medical-themed color scheme</li>
+<li>Component library using Radix UI primitives</li>
+<li>Accessible UI components following WCAG guidelines</li>
+</ul>
+<h2 id="data-flow">Data Flow</h2>
+<ol>
+<li>
+<p><strong>Authentication Flow</strong>:</p>
+<ul>
+<li>User submits credentials via login form</li>
+<li>Server validates against database</li>
+<li>Session token generated and stored</li>
+<li>Client receives user data and token</li>
+<li>Subsequent requests include authentication headers</li>
+</ul>
+</li>
+<li>
+<p><strong>Patient Management Flow</strong>:</p>
+<ul>
+<li>Staff/admin creates or searches for patients</li>
+<li>Patient data validated using Zod schemas</li>
+<li>Database operations performed through Drizzle ORM</li>
+<li>Real-time updates via TanStack Query</li>
+</ul>
+</li>
+<li>
+<p><strong>AI Prediction Flow</strong>:</p>
+<ul>
+<li>Health parameters collected from patient data</li>
+<li>AI models process input data</li>
+<li>Risk scores calculated using rule-based algorithms</li>
+<li>Recommendations generated and stored</li>
+<li>Results displayed with confidence indicators</li>
+</ul>
+</li>
+</ol>
+<h2 id="external-dependencies">External Dependencies</h2>
+<h3 id="core-technologies">Core Technologies</h3>
+<ul>
+<li><strong>@neondatabase/serverless</strong>: Serverless PostgreSQL connection</li>
+<li><strong>drizzle-orm</strong>: Type-safe database operations</li>
+<li><strong>bcrypt</strong>: Password hashing</li>
+<li><strong>@tanstack/react-query</strong>: Server state management</li>
+<li><strong>@hookform/resolvers</strong>: Form validation</li>
+<li><strong>zod</strong>: Runtime type validation</li>
+</ul>
+<h3 id="ui-components">UI Components</h3>
+<ul>
+<li><strong>@radix-ui/</strong>*: Accessible primitive components</li>
+<li><strong>tailwindcss</strong>: Utility-first CSS framework</li>
+<li><strong>class-variance-authority</strong>: Component variant management</li>
+<li><strong>lucide-react</strong>: Icon library</li>
+</ul>
+<h3 id="development-tools">Development Tools</h3>
+<ul>
+<li><strong>vite</strong>: Build tool and development server</li>
+<li><strong>tsx</strong>: TypeScript execution</li>
+<li><strong>esbuild</strong>: Fast bundler for production</li>
+</ul>
+<h2 id="deployment-strategy">Deployment Strategy</h2>
+<h3 id="development">Development</h3>
+<ul>
+<li>Vite development server with HMR</li>
+<li>Express server running on development mode</li>
+<li>Database migrations using Drizzle Kit</li>
+<li>Environment variables for database connection</li>
+</ul>
+<h3 id="production">Production</h3>
+<ul>
+<li>Vite build for optimized frontend bundle</li>
+<li>esbuild for server-side code bundling</li>
+<li>Static file serving through Express</li>
+<li>Database schema management via migration files</li>
+</ul>
+<h3 id="environment-configuration">Environment Configuration</h3>
+<ul>
+<li><code>DATABASE_URL</code> required for PostgreSQL connection</li>
+<li>Session management using environment-specific settings</li>
+<li>Production-ready error handling and logging</li>
+</ul>
+<h2 id="user-preferences">User Preferences</h2>
+<pre><code>Preferred communication style: Simple, everyday language.
+</code></pre>
+
+            
+            
+        </body>
+        </html>
