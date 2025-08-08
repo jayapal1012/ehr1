@@ -5,8 +5,12 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as schema from "@shared/schema";
 
+//const pool = new Pool({
+  //connectionString: "postgres://ehr_user:ehr_password@localhost:5432/ehr",
+//});
 const pool = new Pool({
-  connectionString: "postgres://ehr_user:ehr_password@localhost:5432/ehr",
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
 });
 
 // Test DB connection

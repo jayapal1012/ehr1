@@ -60,8 +60,14 @@ app.use((req, res, next) => {
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen(port, 'localhost', () => {
+  //const port = 5000;
+  //server.listen(port, 'localhost', () => {
+  //log(`serving on port ${port}`);
+//});
+// Use Azure's PORT if provided, otherwise 8080
+const port = process.env.PORT ? Number(process.env.PORT) : 8080;
+// Bind to 0.0.0.0 so the app is reachable from the internet
+server.listen(port, '0.0.0.0', () => {
   log(`serving on port ${port}`);
 });
 })();
